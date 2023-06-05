@@ -1,0 +1,14 @@
+# home_screen.kv
+
+<HomeScreen>:
+    BoxLayout:
+        Button:
+            text: "Database"
+            on_press: root.open_pdf()
+
+        Button:
+            text: "Connection"
+            on_press:
+                root.manager.transition.direction = 'left'
+                root.manager.transition.duration = 1
+                root.manager.current = 'connection'

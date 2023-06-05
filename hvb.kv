@@ -1,0 +1,21 @@
+# hvb.kv
+
+#:include app/view/screens/home_screen.kv
+#:include app/view/screens/connection.kv
+#:include app/view/screens/screen_two.kv
+#:include app/view/screens/screen_three.kv
+
+ScreenManager:
+    id: screen_manager
+    HomeScreen:
+        name: 'home'
+        id: home
+    Connection:
+        name: 'connection'
+        id: connection
+    ScreenTwo:
+        name: 'screen_two'
+        id: screen_two
+    ScreenThree:
+        name: 'screen_three'
+        id: screen_three

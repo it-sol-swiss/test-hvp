@@ -1,0 +1,47 @@
+<ScreenTwo>:
+    BoxLayout:
+        orientation: 'vertical'
+
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint: 1, 0.1
+
+            Label:
+                text: 'Smartflyer AG'
+                size_hint: 0.5, 1
+
+            Label:
+                text: 'User'
+                size_hint: 0.5, 1
+
+        BoxLayout:
+            orientation: 'vertical'
+            padding: 15
+            spacing: 10
+
+
+            Button:
+                text: 'Start'
+                size_hint: 1, 0.35
+
+            BoxLayout:
+                orientation: 'horizontal'
+                size_hint: 1, 0.35
+                spacing: 10
+                Button:
+                    text: 'Lagerung'
+                    size_hint: 0.25, 1
+
+                Button:
+                    text: 'Full Charge'
+                    size_hint: 0.25, 1
+
+            Button:
+                text: 'Cancel'
+                size_hint: 1, 0.35
+
+            TextInput:
+                id: log_text
+                readonly: True
+                size_hint: 1, 1
+

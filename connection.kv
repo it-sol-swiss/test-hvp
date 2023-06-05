@@ -1,0 +1,56 @@
+# connection.kv
+
+<Connection>:
+    BoxLayout:
+        orientation: "vertical"
+        BoxLayout:
+            size_hint: 1, .2
+            Label:
+                text: "Smartflyer AG Hv-B Kapazitätsmessung"
+                size_hint: .8, 1
+            Button:
+                text: "Go to Screen 2"
+                size_hint: .2, 1
+                background_color : 1, 1, 1, 1
+                on_press:
+                    root.manager.transition.direction = 'left'
+                    root.manager.transition.duration = 1
+                    root.manager.current = 'screen_two'
+        BoxLayout:
+            Label:
+                id: log_label  # Die ID, auf die du in der ScreenOne Klasse verweist
+                text: root.log_text  # Insert the text of the log file here
+            BoxLayout:
+                orientation: "vertical"
+                TextInput:
+                    text: "Hier Name eingeben:"
+                # FileChooserListView: This generates an error in the terminal # Here config-file for Hv-B ???
+            RstDocument:
+                text: root.log_text  # Insert the text of the log file here
+
+        BoxLayout:
+            size_hint: 1, .2
+            Button:
+                text: "Connect Can-Bus"
+                background_color : 1, 0, 1, 1
+                on_press:
+                    root.connect_ixxat()
+            Button:
+                text: "Sniff CAN"
+                background_color : 0, 1, 0, 1
+                on_press:
+                    root.connect_ixxat()
+                    root.start_sniffing()
+            Button:
+                text: "Stop Sniff"
+                background_color : 1, 0, 0, 1
+                on_press:
+                    root.stop_sniffing()
+            Button:
+                text: "Verify"
+                background_color : 0, 1, 1, 1
+                on_press:
+                    root.verify()
+            Button:
+                text: "Connect Terminal"
+                background_color : 0, 1, 1, 1
