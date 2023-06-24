@@ -24,16 +24,27 @@ function initView(view) {
 function renderBook(view, book) {
 	const template =
 		`<li>
-			<img src="${book.image}" alt="${book.title}"/>
-			<h2>${book.title}</h2>
-			<h4>${book.author}</h4>	
-			<span class="price">Fr. ${book.price.toFixed(2)}</span>
-			<button class="buy" data-isbn="${book.isbn}">Buy now</button>
-		</li>`;
+            <img src="${book.image}" alt="${book.title}"/>
+            <h2>${book.title}</h2>
+            <h4>${book.author}</h4>
+            <span class="price">Fr. ${book.price.toFixed(2)}</span>
+            <button class="buy" data-isbn="${book.isbn}">Buy now</button>
+        </li>`;
 
 	const li = util.createNodeFromHTML(template);
+
+	li.querySelector('img').addEventListener('click', e => {
+		router.navigate('/book', book.isbn);
+	});
+
+	li.querySelector('h2').addEventListener('click', e => {
+		router.navigate('/book', book.isbn);
+	});
+
 	li.querySelector('.buy').addEventListener('click', e => {
 		router.navigate('/order', book.isbn);
 	});
+
 	view.querySelector('ul').append(li);
 }
+``
